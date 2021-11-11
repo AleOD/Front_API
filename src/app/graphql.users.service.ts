@@ -10,13 +10,13 @@ const TOKENAUTH = gql`
 `;
 
 const CREATEUSER = gql`
-  mutation CreateUser($username: String!, $email: String!, $password: String!, $isSuperUser: Boolean!) {
-    createUser(username: $username, email: $email, password: $password, isSuperUser: $isSuperUser ) {
-      user { 
+  mutation CreateUser($username: String!, $password: String!, $email: String!, $isSuperUser:Boolean!) {
+    createUser(username: $username, password: $password, email: $email, isSuperUser: $isSuperUser) {
+      user{ 
         id
         username
         email
-        isSuperUser
+        isSuperuser
       }
     }
   }
@@ -41,18 +41,16 @@ export class GraphqlUsersService {
   
     }
 
-  createUser(username: string, email: string, password: string, isSuperUser: boolean) {
- 
+  createUser(username: string, email: string, password: string, isSuperuser: string) {
       return this.apollo.mutate({
         mutation: CREATEUSER,
         variables: {
           username: username,
           email: email,
           password: password,
-          isSuperUser: isSuperUser
+          isSuperUser: Boolean(isSuperuser)
         }
       });
-    
   }
    
 }
