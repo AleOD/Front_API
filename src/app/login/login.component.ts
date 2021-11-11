@@ -24,6 +24,7 @@ loginUser() {
        console.log('logged: ', JSON.stringify(data));
        this.token =  JSON.parse(JSON.stringify(data)).tokenAuth.token;
        localStorage.setItem('token', this.token);
+       if(this.token)window.open('http://localhost:4200/dashboard','_self');
     }, (error) => {
        console.log('there was an error sending the query', error);
     });

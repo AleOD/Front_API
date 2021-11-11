@@ -41,7 +41,7 @@ export class GraphqlUsersService {
   
     }
 
-  createUser(username: string, email: string, password: string, isSuperuser: string) {
+  createUser(username: string, email: string, password: string, isSuperuser: boolean) {
       return this.apollo.mutate({
         mutation: CREATEUSER,
         variables: {
