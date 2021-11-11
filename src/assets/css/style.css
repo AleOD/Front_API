@@ -2228,23 +2228,23 @@ label {
 }
 
 .stat-cards-icon.primary {
-  background-color: rgba(47, 73, 209, 0.1);
-  color: #2f49d1;
+  background-color: rgba(204, 255, 51, 0.1);
+  color: #9ef01a;
 }
 
 .stat-cards-icon.warning {
-  background-color: rgba(255, 182, 72, 0.1);
-  color: #ffb648;
+  background-color: rgba(224, 30, 55, 0.1);
+  color: #cd132c;
 }
 
 .stat-cards-icon.purple {
-  background-color: rgba(95, 46, 234, 0.1);
-  color: #5f2eea;
+  background-color: rgba(157, 206, 226, 0.1);
+  color: #d4f0f7;
 }
 
 .stat-cards-icon.success {
   background-color: rgba(75, 222, 151, 0.1);
-  color: #4bde97;
+  color: #fed271;
 }
 
 .stat-cards-info__num {

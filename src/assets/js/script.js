@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', function () {
           labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
           datasets: [{
             label: '+958',
-            data: [90, 10, 80, 20, 70, 30, 50],
+            data: [50, 10, 80, 20, 70, 30, 63, 77],
             tension: 0.4,
             backgroundColor: function backgroundColor(context) {
               var chart = context.chart;
@@ -439,7 +439,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             title: {
               display: true,
-              text: ['New Customers', '28 Daily Avg.'],
+              text: ['  Ultrasonic Sensor', ''],
               align: 'start',
               color: '#fff',
               font: {
@@ -463,15 +463,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   function addData() {
-    var darkMode = localStorage.getItem('darkMode');
+    //var darkMode = localStorage.getItem('darkMode');
 
-    if (darkMode === 'enabled') {
-      gridLine = '#37374F';
-      titleColor = '#EFF0F6';
-    } else {
-      gridLine = '#EEEEEE';
-      titleColor = '#FFFFFF';
-    }
+    gridLine = '#EEEEEE';
+    titleColor = '#FFFFFF';
 
     if (charts.hasOwnProperty('visitors')) {
       charts.visitors.options.scales.x.grid.color = gridLine;
