@@ -23,7 +23,7 @@ loginUser() {
     .subscribe(({ data }) => {
        console.log('logged: ', JSON.stringify(data));
        this.token =  JSON.parse(JSON.stringify(data)).tokenAuth.token;
-       console.log(this.token);
+       localStorage.setItem('token', this.token);
     }, (error) => {
        console.log('there was an error sending the query', error);
     });
