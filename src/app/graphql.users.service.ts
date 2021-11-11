@@ -41,14 +41,15 @@ export class GraphqlUsersService {
   
     }
 
-  createUser(username: string, email: string, password: string) {
+  createUser(username: string, email: string, password: string, isSuperUser: boolean) {
  
       return this.apollo.mutate({
         mutation: CREATEUSER,
         variables: {
           username: username,
           email: email,
-          password: password
+          password: password,
+          isSuperUser: isSuperUser
         }
       });
     

@@ -13,37 +13,73 @@ const TOKENAUTH = gql`
   }
 `;
 
-const LINKS = gql`
-  query Links {
-    links {
-      url
-      description
+const COMPONENTS = gql`
+  query Components {
+    components {
+      name 
+      value
+      cType
+      unit
     }
   }
 `;
 
-const LINKSPARAM = gql`
-  query Links($nombre: String!) {
-    links(nombre: $nombre) {
+const COMPONENTSPARAM = gql`
+  query Components($name:String!, $cType:String!, $value:String!,$unit:String!) {
+    components(name:$name, cType:$cType, value:$value, unit:$unit) {
       id
-      url
-      description
-      precio
-      postedBy {
+      name 
+      value
+      cType
+      unit
+      owner {
+        id
         username
+        email
       }
     }
   }
 `;
-const CREATELINK = gql`
-  mutation CreateLink($url: String!, $description: String!) {
-    createLink(url: $url, description: $description) {
+
+
+createComponent(name:"DHT11-temperature", cType:"sensor", value: "99", unit: "°"){
+    id
+    name
+    value
+    unit
+    owner {
       id
-      url
-      description
+    }
+  }
+
+
+
+const CREATECOMPONENT = gql`
+  mutation CreateComponent($name:String!, $cType:String!, $value:String!,$unit:String!) {
+    createComponent(name:$name, cType:$cType, value:$value, unit:$unit) {
+      id
+      name
+      value
+      unit
+      owner {
+        id
+      }
    }
   }
   `;
+
+const UPDATECOMPONENT = gql`
+  mutation UpdateComponent($name:String!, $value:String!) {
+    updateComponent(name:$name, value:$value) {
+      component {
+        id
+        name
+        value
+    }
+  }
+  }
+  `;
+
 
 @Injectable({
   providedIn: 'root'
@@ -57,42 +93,60 @@ export class GraphqlProductsService  {
 
   constructor(private apollo: Apollo) {}
 
-  links(valor : string) {
+  Components(valor : string) {
     //alert(valor);
     if (valor=="-")
     {
       return this.apollo.watchQuery({
-        query: LINKS 
+        query: COMPONENTS 
       });
     }
     else
     {
       //alert(valor);
       return this.apollo.watchQuery({
-        query: LINKSPARAM,
+        query: COMPONENTSPARAM,
         variables: {
           nombre: valor
         }, 
       });
     }
-  
-  }
+}
  
- createLink(mytoken: string, url: string, description: string) {
+ createComponent(mytoken: string, name: string, value: string, cType: string, unit: string) {
        console.log("token auth = " + mytoken);
       return this.apollo.mutate({
-        mutation: CREATELINK,
+        mutation: CREATECOMPONENT,
         variables: {
-          url: url,
-          description: description
+          name: name,
+          value: value,
+          cType: cType,
+          unit: unit
         },
         context: {
           // example of setting the headers with context per operation
           headers: new HttpHeaders().set('Authorization', 'JWT ' + mytoken),
         },
 
-      });
-    
+      }); 
   }
+ 
+ updateComponent(mytoken: string, name: string, value: string) {
+       console.log("token auth = " + mytoken);
+      return this.apollo.mutate({
+        mutation: UPDATECOMPONENT,
+        variables: {
+          name: name,
+          value: value
+        },
+        context: {
+          // example of setting the headers with context per operation
+          headers: new HttpHeaders().set('Authorization', 'JWT ' + mytoken),
+        },
+
+      }); 
+  }  
+
+
    
 }
