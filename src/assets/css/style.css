@@ -1023,8 +1023,8 @@ img {
 }
 
 .menu-toggle {
-  /*background-image: url(../img/svg/Bulk/Menu-toggle-white.svg);
-  */width: 24px;
+  background-image: url(../img/svg/Bulk/Menu-toggle-white.svg);
+  width: 24px;
   height: 24px;
 }
 
@@ -2997,8 +2997,8 @@ label {
 }
 
 .darkmode .menu-toggle--gray {
-  /*background-image: url(../img/svg/Bulk/Menu-toggle-white.svg);
-*/
+  background-image: url(../img/svg/Bulk/Menu-toggle-white.svg);
+
 }
 
 .moon-icon {
