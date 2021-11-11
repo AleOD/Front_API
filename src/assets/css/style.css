@@ -2228,22 +2228,22 @@ label {
 }
 
 .stat-cards-icon.primary {
-  background-color: rgba(204, 255, 51, 0.1);
-  color: #9ef01a;
+  background-color: rgba(207, 252, 255, 0.4);
+  color: #000;
 }
 
 .stat-cards-icon.warning {
-  background-color: rgba(224, 30, 55, 0.1);
+  background-color: rgba(207, 252, 255, 0.4);
   color: #cd132c;
 }
 
 .stat-cards-icon.purple {
-  background-color: rgba(157, 206, 226, 0.1);
-  color: #d4f0f7;
+  background-color: rgba(207, 252, 255, 0.4);
+  color: #4cc9f0;
 }
 
 .stat-cards-icon.success {
-  background-color: rgba(75, 222, 151, 0.1);
+  background-color: rgba(207, 252, 255, 0.4);
   color: #fed271;
 }
 
@@ -2251,7 +2251,7 @@ label {
   font-weight: 600;
   font-size: 18px;
   line-height: 1.22;
-  color: #171717;
+  color: #FFF;
   margin-bottom: 4px;
 }
 
@@ -2824,7 +2824,7 @@ label {
 }
 
 .darkmode .main-nav--bg {
-  background-color: #14213D;
+  background-color: rgba(74, 78, 105,0.5);
 }
 
 
@@ -2866,7 +2866,7 @@ label {
 
 .darkmode .stat-cards-item {
   /*background-color: #222235;*/
-  background-color: rgba(0, 41, 69, 0.6);
+  background-color: rgba(168, 218, 220, 0.2);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -2882,7 +2882,7 @@ label {
 
 .darkmode #myChart {
   /*background-color: #222235;*/
-  background-color: rgba(224, 159, 62,0.8);
+  background-color: rgba(230, 57, 70,0.6);
   -webkit-box-shadow: none;
   box-shadow: none;
 }

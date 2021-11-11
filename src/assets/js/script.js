@@ -305,8 +305,8 @@ document.addEventListener('DOMContentLoaded', function () {
             data: [35, 27, 40, 15, 30, 25, 45],
             cubicInterpolationMode: 'monotone',
             tension: 0.4,
-            backgroundColor: ['rgba(76, 201, 240, 1)'],
-            borderColor: ['rgba(76, 201, 240, 1)'],
+            backgroundColor: ['rgba(56, 176, 0, 1)'],
+            borderColor: ['rgba(56, 176, 0, 1)'],
             borderWidth: 2
           }, {
             label: 'Previous',
@@ -359,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function () {
               display: true,
               text: ['Sensor statistics', 'Nov - July'],
               align: 'start',
-              color: '#171717',
+              color: '#FFFFFF',
               font: {
                 size: 16,
                 family: 'Inter',
@@ -431,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function () {
               position: 'top',
               align: 'end',
               labels: {
-                color: '#fff',
+                color: '#FFFFFF',
                 size: 18,
                 fontStyle: 800,
                 boxWidth: 0
@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', function () {
               display: true,
               text: ['  Ultrasonic Sensor', ''],
               align: 'start',
-              color: '#fff',
+              color: '#FFFFFF',
               font: {
                 size: 16,
                 family: 'Inter',
