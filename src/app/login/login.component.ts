@@ -8,13 +8,15 @@ import { GraphqlUsersService } from '../graphql.users.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  user: string = "";
+  pass: string = "";
+  token: string = "";
   constructor(private graphqlUsersService: GraphqlUsersService) { }
 
   ngOnInit(): void {
   }
 
-}
+
 
 loginUser() {
     this.graphqlUsersService.tokenAuth(this.user, this.pass)
@@ -27,3 +29,4 @@ loginUser() {
     });
   
   }  
+}
