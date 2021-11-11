@@ -470,7 +470,7 @@ document.addEventListener('DOMContentLoaded', function () {
       titleColor = '#EFF0F6';
     } else {
       gridLine = '#EEEEEE';
-      titleColor = '#171717';
+      titleColor = '#FFFFFF';
     }
 
     if (charts.hasOwnProperty('visitors')) {
