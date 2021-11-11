@@ -2824,7 +2824,7 @@ label {
 }
 
 .darkmode .main-nav--bg {
-  background-color: #161624;
+  background-color: #14213D;
 }
 
 
@@ -2865,7 +2865,8 @@ label {
 }
 
 .darkmode .stat-cards-item {
-  background-color: #222235;
+  /*background-color: #222235;*/
+  background-color: rgba(0, 41, 69, 0.6);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -2880,7 +2881,8 @@ label {
 }
 
 .darkmode #myChart {
-  background-color: #222235;
+  /*background-color: #222235;*/
+  background-color: rgba(224, 159, 62,0.8);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -2943,7 +2945,7 @@ label {
 }
 
 .darkmode .white-block {
-  background-color: #222235;
+  background-color: rgba(255, 255, 255,0.09);
   color: #D6D7E3;
 }
 
