@@ -42,15 +42,6 @@ const COMPONENTSPARAM = gql`
 `;
 
 
-createComponent(name:"DHT11-temperature", cType:"sensor", value: "99", unit: "°"){
-    id
-    name
-    value
-    unit
-    owner {
-      id
-    }
-  }
 
 
 
