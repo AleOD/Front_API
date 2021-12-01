@@ -12,6 +12,11 @@ export class DashboardComponent implements OnInit {
 
   temp = [];
   sensors = {};
+  slider: string = "";
+  blurEvent(event: any){
+    this.slider = event.target.value;
+    console.log(this.slider);
+  }
 
   constructor(private graphqlProductsService: GraphqlProductsService ) { }
 
@@ -23,7 +28,6 @@ export class DashboardComponent implements OnInit {
     this.querySubscription = this.graphqlProductsService.Components("-")
     .valueChanges
     .subscribe(({ data }) => {
-      //console.log(JSON.parse(JSON.stringify(data)));
       let c = JSON.parse(JSON.stringify(data));
       c.components.shift();
       console.log('DATA FROM API: ', c.components);

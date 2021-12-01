@@ -77,7 +77,7 @@
                 </div>
                 <div class="stat-cards-info">
                   <p class="stat-cards-info__num">{{sensors[3]==='0' ? 'OFF':'ON'}}</p>
-                  <p class="stat-cards-info__title">LED</p>
+                  <p class="stat-cards-info__title">Luminosity</p>
                 </div>
               </article>
             </div>
@@ -91,8 +91,7 @@
                     <img src="../assets/img/icons/icons8-led-70.png" alt="LED">
                 </div>
                 <div class="stat-cards-info">
-                  <p class="stat-cards-info__num">Actuador LED</p>
-                  <p class="stat-cards-info__title">O</p>
+                  <p class="stat-cards-info__num">LED</p>
                   <p class="stat-cards-info__title">Encendido</p>
                 </div>
               </article>
@@ -107,7 +106,8 @@
                 <div class="stat-cards-info">
                   <p class="stat-cards-info__num">Actuador </p>
                   <div class="slidecontainer">
-                    <input type="range" min="0" max="180" value="10" class="slider" id="myRange">
+                    <input type="range" min="0" max="180" value="10" class="slider" id="actuator-slider" (blur)="blurEvent($event)"
+                    >
                   </div>
                 </div>
               </article>
@@ -123,9 +123,6 @@
             <div class="col-lg-3">
               <article class="customers-wrapper">
                 <canvas id="customersChart" aria-label="Customers statistics" role="img"></canvas>
-                <!--              <p class="customers__title">New Customers <span>+958</span></p>
-                <p class="customers__date">28 Daily Avg.</p>
-                <picture><source srcset="./img/svg/customers.svg" type="image/webp"><img src="./img/svg/customers.svg" alt=""></picture> -->
               </article>
               <article class="white-block">
                 <div class="top-cat-title">
