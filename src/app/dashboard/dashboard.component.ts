@@ -13,9 +13,10 @@ export class DashboardComponent implements OnInit {
   temp = [];
   sensors = {};
   slider: string = "";
+  token: string = localStorage.getItem('token');
+
   blurEvent(event: any){
-    this.slider = event.target.value;
-    console.log(this.slider);
+    this.setActuator(event.target.name, event.target.value);
   }
 
   constructor(private graphqlProductsService: GraphqlProductsService ) { }
@@ -33,9 +34,17 @@ export class DashboardComponent implements OnInit {
       console.log('DATA FROM API: ', c.components);
       this.temp=c.components;
       this.sensors=this.sortSensors(this.temp);
-    });
-
+    })
   }
+
+  setActuator(name:string, value:string) {  
+    this.graphqlProductsService.updateComponent(this.token,name,value)
+    .subscribe(({ data }) => {
+       console.log('actuatorValue: ', JSON.stringify(data));
+    }, (error) => {
+       console.log('there was an error sending the query', error);
+    });
+  } 
 
   sortSensors(sensors:any) {
     return [
