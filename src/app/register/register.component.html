@@ -12,16 +12,16 @@
   
                 <div class="form-outline form-white mb-4">
                     <!-- <label class="form-label" for="typeEmailX">Email</label> -->
-                  <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="Email"/>
+                  <input type="text" id="typeEmailX" class="form-control form-control-lg" placeholder="username" [(ngModel)]= "user">
                 </div>
   
                 <div class="form-outline form-white mb-4">
                     <!-- <label class="form-label" for="typePasswordX">Password</label> -->
-                  <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="Password"/>
+                  <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="Password" [(ngModel)]= "pass">
                 </div>
   
                 <br>
-                <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+                <button class="btn btn-outline-light btn-lg px-5" type="submit" (click)="registerUser()">Register</button>
   
               </div>
   

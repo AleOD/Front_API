@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GraphqlUsersService } from '../graphql.users.service';
+
 
 @Component({
   selector: 'app-login',
@@ -6,10 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  user: string = "";
+  pass: string = "";
+  token: string = "";
+  constructor(private graphqlUsersService: GraphqlUsersService) { }
 
   ngOnInit(): void {
   }
 
+
+
+loginUser() {
+    this.graphqlUsersService.tokenAuth(this.user, this.pass)
+    .subscribe(({ data }) => {
+       console.log('logged: ', JSON.stringify(data));
+       this.token =  JSON.parse(JSON.stringify(data)).tokenAuth.token;
+       localStorage.setItem('token', this.token);
+       if(this.token)window.open('http://localhost:4200/dashboard','_self');
+    }, (error) => {
+       console.log('there was an error sending the query', error);
+    });
+  
+  }  
 }
+
+
