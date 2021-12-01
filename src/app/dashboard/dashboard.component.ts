@@ -13,40 +13,6 @@ export class DashboardComponent implements OnInit {
   temp = [];
   sensors = {};
 
-  sensors_test = [
-      {
-        name: "DHT11",
-        value: "58",
-        unit: "degrees"
-      },
-      {
-        name: "Ultrasonic sensor",
-        value: "2.5814977185479524",
-        unit: "cm"
-      },
-      {
-        name: "LDR",
-        value: "1",
-        unit: "none"
-      },
-      // Probar con el servo funcionando...
-      // {
-      //   name: "SG90",
-      //   value: "1",
-      //   unit: "none"
-      // },
-      {
-        name: "DHT11-temperature",
-        value: "24",
-        unit: "°"
-      },
-      {
-        name: "DHT11-humidity",
-        value: "37",
-        unit: "%"
-      }
-  ];
-
   constructor(private graphqlProductsService: GraphqlProductsService ) { }
 
   ngOnInit(): void {
@@ -60,11 +26,8 @@ export class DashboardComponent implements OnInit {
       //console.log(JSON.parse(JSON.stringify(data)));
       let c = JSON.parse(JSON.stringify(data));
       c.components.shift();
-      this.temp=c.components; // estos son los datos que vienen de la API
-      if (this.temp.length === 0) {
-        this.temp = this.sensors_test; // Si no hay nada, usa datos de prueba jeje.
-        console.log(this.temp);
-      }
+      console.log('DATA FROM API: ', c.components);
+      this.temp=c.components;
       this.sensors=this.sortSensors(this.temp);
     });
 
