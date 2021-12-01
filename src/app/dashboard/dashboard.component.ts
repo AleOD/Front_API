@@ -13,6 +13,40 @@ export class DashboardComponent implements OnInit {
   temp = [];
   sensors = {};
 
+  sensors_test = [
+      {
+        name: "DHT11",
+        value: "58",
+        unit: "degrees"
+      },
+      {
+        name: "Ultrasonic sensor",
+        value: "2.5814977185479524",
+        unit: "cm"
+      },
+      {
+        name: "LDR",
+        value: "1",
+        unit: "none"
+      },
+      // Probar con el servo funcionando...
+      // {
+      //   name: "SG90",
+      //   value: "1",
+      //   unit: "none"
+      // },
+      {
+        name: "DHT11-temperature",
+        value: "24",
+        unit: "°"
+      },
+      {
+        name: "DHT11-humidity",
+        value: "37",
+        unit: "%"
+      }
+  ];
+
   constructor(private graphqlProductsService: GraphqlProductsService ) { }
 
   ngOnInit(): void {
@@ -26,27 +60,26 @@ export class DashboardComponent implements OnInit {
       //console.log(JSON.parse(JSON.stringify(data)));
       let c = JSON.parse(JSON.stringify(data));
       c.components.shift();
-      this.temp=c.components;
-      console.log(this.temp);
+      this.temp=c.components; // estos son los datos que vienen de la API
+      if (this.temp.length === 0) {
+        this.temp = this.sensors_test; // Si no hay nada, usa datos de prueba jeje.
+        console.log(this.temp);
+      }
       this.sensors=this.sortSensors(this.temp);
     });
 
   }
 
-  sortSensors(sensors:any){
-    let data = {
-      ultras: {},
-      temp : {},
-      humidity : {},
-      led : {},
-    } 
-    sensors.forEach(sensor => {
-      if(sensor.unit == "cm") data.ultras = sensor; 
-      if(sensor.unit == "°") data.temp = sensor;
-      if(sensor.unit == "%") data.humidity = sensor;
-      if(sensor.unit == "none") data.led = sensor;
-    })
-    return data;
-
+  sortSensors(sensors:any) {
+    return [
+      // Ultrasonic sensor
+      sensors.filter((sensor) => sensor.unit === "cm")[0].value.slice(0,5),
+      // DHT11 - Temperature
+      sensors.filter((sensor) => sensor.unit === "°")[0].value,
+      // DHT11 - Humidity
+      sensors.filter((sensor) => sensor.unit === "%")[0].value,
+      // LDR
+      sensors.filter((sensor) => sensor.unit === "none")[0].value
+    ]
   }
 }

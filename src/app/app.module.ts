@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     LandingComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    // DashboardComponent
   ],
   imports: [
     BrowserModule,

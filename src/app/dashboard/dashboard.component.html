@@ -43,7 +43,7 @@
                   <i data-feather="more-horizontal" aria-hidden="true"></i>
                 </div>
                 <div class="stat-cards-info">
-                  <p class="stat-cards-info__num">{{sensors.ultras.value.slice(0,5)}} {{sensors.ultras.unit}}</p>
+                  <p class="stat-cards-info__num">{{sensors[0]}} cm</p>
                   <p class="stat-cards-info__title">Ultrasónico</p>
                 </div>
               </article>
@@ -54,7 +54,7 @@
                   <i data-feather="thermometer" aria-hidden="true"></i>
                 </div>
                 <div class="stat-cards-info">
-                  <p class="stat-cards-info__num">{{sensors.temp.value}}{{sensors.temp.unit}}</p>
+                  <p class="stat-cards-info__num">{{sensors[1]}} °C</p>
                   <p class="stat-cards-info__title">Temperatura</p>
                 </div>
               </article>
@@ -65,7 +65,7 @@
                   <i data-feather="droplet" aria-hidden="true"></i>
                 </div>
                 <div class="stat-cards-info">
-                  <p class="stat-cards-info__num">{{sensors.humidity.value}}{{sensors.humidity.unit}}</p>
+                  <p class="stat-cards-info__num">{{sensors[2]}} %</p>
                   <p class="stat-cards-info__title">Húmedad</p>
                 </div>
               </article>
@@ -76,7 +76,7 @@
                   <i data-feather="sun" aria-hidden="true"></i>
                 </div>
                 <div class="stat-cards-info">
-                  <p class="stat-cards-info__num">{{sensors.led.value==='0' ? 'OFF':'ON'}}</p>
+                  <p class="stat-cards-info__num">{{sensors[3]==='0' ? 'OFF':'ON'}}</p>
                   <p class="stat-cards-info__title">LED</p>
 
                 </div>
