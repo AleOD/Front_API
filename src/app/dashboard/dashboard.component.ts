@@ -30,12 +30,12 @@ export class DashboardComponent implements OnInit {
 
   checkToken() {
     if (!localStorage.getItem('token')) {
-      window.open('http://34.125.7.41:8082/','_self');
+      window.open('http://34.125.235.58:8082/','_self');
     }
   }
 
   refresh(){
-    window.open('http://34.125.7.41:8082/dashboard','_self');
+    window.open('http://34.125.235.58:8082/dashboard','_self');
   }
 
   constructor(private graphqlProductsService: GraphqlProductsService ) { }
@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
   
   logout(){
     localStorage.clear();
-    window.open('http://34.125.7.41:8082/','_self');
+    window.open('http://34.125.235.58:8082/','_self');
   }
 
   getComponents(){
