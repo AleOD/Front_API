@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GraphqlProductsService } from '../graphql.products.service';
 import { Subscription } from 'rxjs';
+import { setInterval } from 'timers';
 
 
 @Component({
@@ -29,9 +30,20 @@ export class DashboardComponent implements OnInit {
     //this.getComponents();
   }
 
+  checkToken() {
+    if (!localStorage.getItem('token')) {
+      window.open('http://localhost:4200/','_self');
+    }
+  }
+
+  refresh(){
+    window.open('http://localhost:4200/dashboard','_self');
+  }
+
   constructor(private graphqlProductsService: GraphqlProductsService ) { }
 
   ngOnInit(): void {
+    this.checkToken();
     this.getComponents();
     this.getLogs();
   }
