@@ -40,7 +40,8 @@
             <div class="col-md-6 col-xl-3">
               <article class="stat-cards-item">
                 <div class="stat-cards-icon primary">
-                  <i data-feather="more-horizontal" aria-hidden="true"></i>
+                  <img src="../assets/img/icons/icons-measure-71.png" alt="Ultrasonic">
+
                 </div>
                 <div class="stat-cards-info">
                   <p class="stat-cards-info__num">{{sensors[0]}} cm</p>
@@ -112,7 +113,7 @@
                   <div class="slidecontainer">
                     <input type="range" min="0" max="100" value="{{sensors[4]}}" class="slider" id="actuator-slider" name="DC-Motor" (blur)="blurEvent($event)"
                     >
-                    <h3 style="color:white">{{sensors[4]}}pwm</h3>
+                    <h3 style="color:white">{{sensors[4]}} pwm</h3>
                   </div>
                 </div>
               </article>
@@ -120,103 +121,10 @@
 
           </div>
           <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-12">
               <div class="chart">
                 <canvas id="myChart" aria-label="Site statistics" role="img"></canvas>
               </div>
-            </div>
-            <div class="col-lg-3">
-              <article class="customers-wrapper">
-                <canvas id="customersChart" aria-label="Customers statistics" role="img"></canvas>
-              </article>
-              <article class="white-block">
-                <div class="top-cat-title">
-                  <h3>Components Performance</h3>
-                  <p>8 Components, 577 Logs</p>
-                </div>
-                <ul class="top-cat-list">
-                  <li>
-                    <a href="##">
-                      <div class="top-cat-list__title">
-                        Ultrasonico <span>51%</span>
-                      </div>
-                      <div class="top-cat-list__subtitle">
-                        ------- <span class="purple">+472</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="##">
-                      <div class="top-cat-list__title">
-                        LM35 <span>46%</span>
-                      </div>
-                      <div class="top-cat-list__subtitle">
-                        ------- <span class="blue">+472</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="##">
-                      <div class="top-cat-list__title">
-                        Humedad <span>32%</span>
-                      </div>
-                      <div class="top-cat-list__subtitle">
-                        ------- <span class="danger">+472</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="##">
-                      <div class="top-cat-list__title">
-                        Infrarojo <span>15%</span>
-                      </div>
-                      <div class="top-cat-list__subtitle">
-                        ------- <span class="success">+472</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="##">
-                      <div class="top-cat-list__title">
-                        Motores <span>13%</span>
-                      </div>
-                      <div class="top-cat-list__subtitle">
-                        ------- <span class="warning">+472</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="##">
-                      <div class="top-cat-list__title">
-                        Cámara <span>11.5%</span>
-                      </div>
-                      <div class="top-cat-list__subtitle">
-                        ------- <span class="warning">+472</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="##">
-                      <div class="top-cat-list__title">
-                        LED <span>7%</span>
-                      </div>
-                      <div class="top-cat-list__subtitle">
-                        ------- <span class="warning">+472</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="##">
-                      <div class="top-cat-list__title">
-                        Geography <span>5%</span>
-                      </div>
-                      <div class="top-cat-list__subtitle">
-                        ------- <span class="primary">+472</span>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </article>
             </div>
           </div>
         </div>

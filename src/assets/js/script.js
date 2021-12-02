@@ -294,23 +294,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var ctx = document.getElementById('myChart');
 
+    let logDataHum = JSON.parse(window.localStorage.getItem("humidity") || "[]");
+    console.log('humidity values',logDataHum);
+    let logDataTem = JSON.parse(window.localStorage.getItem("temperature") || "[]");
+    console.log('temp values',logDataTem);
+
+
+
     if (ctx) {
       var myCanvas = ctx.getContext('2d');
       var myChart = new Chart(myCanvas, {
         type: 'line',
         data: {
-          labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          labels: ['', '', '', '', '', '', '','','','','','','','','','','','','',''],
           datasets: [{
-            label: 'Last 6 months',
-            data: [35, 27, 40, 15, 30, 25, 45],
+            label: 'humidity',
+            data: logDataHum.map((log) => log.value),
             cubicInterpolationMode: 'monotone',
             tension: 0.4,
             backgroundColor: ['rgba(56, 176, 0, 1)'],
             borderColor: ['rgba(56, 176, 0, 1)'],
             borderWidth: 2
           }, {
-            label: 'Previous',
-            data: [20, 36, 16, 45, 29, 32, 10],
+            label: 'temperature',
+            data: logDataTem.map((log) => log.value),
             cubicInterpolationMode: 'monotone',
             tension: 0.4,
             backgroundColor: ['rgba(90, 24, 154, 1)'],
@@ -322,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function () {
           scales: {
             y: {
               min: 0,
-              max: 100,
+              max: 50,
               ticks: {
                 stepSize: 25
               },
@@ -384,7 +391,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     var customersChart = document.getElementById('customersChart');
-
     if (customersChart) {
       var customersChartCanvas = customersChart.getContext('2d');
       var myCustomersChart = new Chart(customersChartCanvas, {

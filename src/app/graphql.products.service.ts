@@ -24,6 +24,16 @@ const COMPONENTS = gql`
   }
 `;
 
+const LOGS = gql`
+query Logs{
+    logs {
+      name 
+      value
+      created
+    }
+  }
+`;
+
 const COMPONENTSPARAM = gql`
   query Components($name:String!, $cType:String!, $value:String!,$unit:String!) {
     components(name:$name, cType:$cType, value:$value, unit:$unit) {
@@ -137,6 +147,16 @@ export class GraphqlProductsService  {
 
       }); 
   }  
+
+
+  Logs() {
+    return this.apollo.watchQuery({
+      query: LOGS 
+    });
+    
+
+}
+
 
 
    
