@@ -40,7 +40,7 @@ loginUser() {
        console.log('logged: ', JSON.stringify(data));
        this.token =  JSON.parse(JSON.stringify(data)).tokenAuth.token;
        localStorage.setItem('token', this.token);
-       if(this.token)window.open('http://34.125.7.41:8083/dashboard','_self');
+       if(this.token)window.open('http://34.125.7.41:8082/dashboard','_self');
     }, (error) => {
        console.log('there was an error sending the query', error);
     });

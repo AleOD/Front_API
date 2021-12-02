@@ -62,7 +62,7 @@ class RegisterComponent {
             this.token = JSON.parse(JSON.stringify(data)).tokenAuth.token;
             localStorage.setItem('token', this.token);
             if (this.token)
-                window.open('http://34.125.7.41:8083/dashboard', '_self');
+                window.open('http://34.125.7.41:8082/dashboard', '_self');
         }, (error) => {
             console.log('there was an error sending the query', error);
         });
@@ -359,11 +359,11 @@ class DashboardComponent {
     }
     checkToken() {
         if (!localStorage.getItem('token')) {
-            window.open('http://34.125.7.41:8083/', '_self');
+            window.open('http://34.125.7.41:8082/', '_self');
         }
     }
     refresh() {
-        window.open('http://34.125.7.41:8083/dashboard', '_self');
+        window.open('http://34.125.7.41:8082/dashboard', '_self');
     }
     ngOnInit() {
         this.checkToken();
@@ -372,7 +372,7 @@ class DashboardComponent {
     }
     logout() {
         localStorage.clear();
-        window.open('http://34.125.7.41:8083/', '_self');
+        window.open('http://34.125.7.41:8082/', '_self');
     }
     getComponents() {
         this.querySubscription = this.graphqlProductsService.Components("-")
@@ -1096,7 +1096,7 @@ class LoginComponent {
             this.token = JSON.parse(JSON.stringify(data)).tokenAuth.token;
             localStorage.setItem('token', this.token);
             if (this.token)
-                window.open('http://34.125.7.41:8083/dashboard', '_self');
+                window.open('http://34.125.7.41:8082/dashboard', '_self');
         }, (error) => {
             console.log('there was an error sending the query', error);
         });
