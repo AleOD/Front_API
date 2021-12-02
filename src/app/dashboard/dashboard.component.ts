@@ -58,12 +58,8 @@ export class DashboardComponent implements OnInit {
   
   logout(){
     localStorage.clear();
-<<<<<<< HEAD
     // window.open('http://34.125.7.41:8083/','_self');
     this.router.navigate(['/']);
-=======
-    window.open('http://34.125.7.41:8082/','_self');
->>>>>>> master
   }
 
   getComponents(){
