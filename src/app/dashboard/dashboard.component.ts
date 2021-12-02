@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GraphqlProductsService } from '../graphql.products.service';
 import { Subscription } from 'rxjs';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -30,25 +31,35 @@ export class DashboardComponent implements OnInit {
 
   checkToken() {
     if (!localStorage.getItem('token')) {
-      window.open('http://localhost:4200/','_self');
+      // window.open('http://34.125.7.41:8083/','_self');
+      //this.router.navigate(['/']);
+      location.href = "dashboard.component.html";
     }
   }
-
-  refresh(){
-    window.open('http://localhost:4200/dashboard','_self');
-  }
-
-  constructor(private graphqlProductsService: GraphqlProductsService ) { }
-
+  
+  constructor(private graphqlProductsService: GraphqlProductsService, public router: Router) { }
+  
   ngOnInit(): void {
     this.checkToken();
     this.getComponents();
     this.getLogs();
   }
   
+  refresh(){
+    console.log('REFRESCANDO...')
+    // window.open('http://34.125.7.41:8083/dashboard','_self');
+    this.router.navigate(['/dashboard'])
+     .then(() => {
+    window.location.reload();
+  });
+    this.getComponents();
+    this.getLogs();
+  }
+  
   logout(){
     localStorage.clear();
-    window.open('http://localhost:4200/','_self');
+    // window.open('http://34.125.7.41:8083/','_self');
+    this.router.navigate(['/']);
   }
 
   getComponents(){
