@@ -2882,7 +2882,7 @@ label {
 
 .darkmode #myChart {
   /*background-color: #222235;*/
-  background-color: rgba(230, 57, 70,0.6);
+  background-color: rgba(230, 57, 70,0.2);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
