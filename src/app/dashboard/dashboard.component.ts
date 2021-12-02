@@ -35,6 +35,11 @@ export class DashboardComponent implements OnInit {
     this.getComponents();
     this.getLogs();
   }
+  
+  logout(){
+    localStorage.clear();
+    window.open('http://localhost:4200/','_self');
+  }
 
   getComponents(){
     this.querySubscription = this.graphqlProductsService.Components("-")
