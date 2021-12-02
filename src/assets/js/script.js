@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function () {
         height = chartHeight;
         gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
         gradient.addColorStop(0, 'rgba(255, 255, 255, 0)');
-        gradient.addColorStop(1, 'rgba(255, 255, 255, 0.4)');
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 1)');
       }
 
       return gradient;
@@ -320,8 +320,8 @@ document.addEventListener('DOMContentLoaded', function () {
             data: logDataTem.map((log) => log.value),
             cubicInterpolationMode: 'monotone',
             tension: 0.4,
-            backgroundColor: ['rgba(90, 24, 154, 1)'],
-            borderColor: ['rgba(90, 24, 154, 1)'],
+            backgroundColor: ['rgba(231, 111, 81, 1)'],
+            borderColor: ['rgba(231, 111, 81, 1)'],
             borderWidth: 2
           }]
         },
@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             title: {
               display: true,
-              text: ['Sensor statistics', 'Nov - July'],
+              text: ['Sensor statistics'],
               align: 'start',
               color: '#FFFFFF',
               font: {
