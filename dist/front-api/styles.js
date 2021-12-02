@@ -58,7 +58,7 @@ ___CSS_LOADER_EXPORT___.push([module.i, "/* You can add global styles to this fi
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Fer\Desktop\Programmig_3\Front_API\src\styles.scss */"+EN/");
+module.exports = __webpack_require__(/*! C:\Users\inicio\Google Drive\Semestre 9\Desarrollo Web\ProyectoFinal\Front_API\src\styles.scss */"+EN/");
 
 
 /***/ }),

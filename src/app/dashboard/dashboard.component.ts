@@ -38,7 +38,6 @@ export class DashboardComponent implements OnInit {
   }
   
   constructor(private graphqlProductsService: GraphqlProductsService, public router: Router) { }
-  
   ngOnInit(): void {
     this.checkToken();
     this.getComponents();
