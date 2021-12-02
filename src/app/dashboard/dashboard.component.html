@@ -77,11 +77,47 @@
                 </div>
                 <div class="stat-cards-info">
                   <p class="stat-cards-info__num">{{sensors[3]==='0' ? 'OFF':'ON'}}</p>
-                  <p class="stat-cards-info__title">LED</p>
-
+                  <p class="stat-cards-info__title">Luminosity</p>
                 </div>
               </article>
             </div>
+
+            <div class="col-md-6 col-xl-3">
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+              <article class="stat-cards-item">
+                <div class="stat-cards-icon success">
+                    <img src="../assets/img/icons/icons8-led-70.png" alt="LED">
+                </div>
+                <div class="stat-cards-info">
+                  <p class="stat-cards-info__num">LED</p>
+                  <label class="switch mt-2">
+                    <input type="checkbox" name="LED" [checked]="sensors[5] == '1' ? true : false"
+                    (blur)="blurEvent($event)">
+                    <span class="slider-btn round"></span>
+                  </label>
+                </div>
+              </article>
+            </div>
+
+
+            <div class="col-md-6 col-xl-3">
+              <article class="stat-cards-item">
+                <div class="stat-cards-icon success">
+                  <img src="../assets/img/icons/robot.png" alt="Servo">
+                </div>
+                <div class="stat-cards-info">
+                  <p class="stat-cards-info__num">Actuador </p>
+                  <div class="slidecontainer">
+                    <input type="range" min="0" max="180" value="{{sensors[4]}}" class="slider" id="actuator-slider" name="SG90" (blur)="blurEvent($event)"
+                    >
+                    <h3 style="color:white">{{sensors[4]}}°</h3>
+                  </div>
+                </div>
+              </article>
+            </div>
+
           </div>
           <div class="row">
             <div class="col-lg-9">
@@ -92,9 +128,6 @@
             <div class="col-lg-3">
               <article class="customers-wrapper">
                 <canvas id="customersChart" aria-label="Customers statistics" role="img"></canvas>
-                <!--              <p class="customers__title">New Customers <span>+958</span></p>
-                <p class="customers__date">28 Daily Avg.</p>
-                <picture><source srcset="./img/svg/customers.svg" type="image/webp"><img src="./img/svg/customers.svg" alt=""></picture> -->
               </article>
               <article class="white-block">
                 <div class="top-cat-title">

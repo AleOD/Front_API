@@ -32,7 +32,7 @@ registerUser() {
     }, (error) => {
        console.log('there was an error sending the query', error);
     });
-  } 
+} 
 
 loginUser() {
     this.graphqlUsersService.tokenAuth(this.user, this.pass)
