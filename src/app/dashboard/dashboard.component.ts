@@ -46,6 +46,7 @@ export class DashboardComponent implements OnInit {
   }
   
   refresh(){
+    console.log('REFRESCANDO...')
     // window.open('http://34.125.7.41:8083/dashboard','_self');
     this.router.navigate(['/dashboard'])
      .then(() => {
