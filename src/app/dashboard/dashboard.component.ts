@@ -32,7 +32,8 @@ export class DashboardComponent implements OnInit {
   checkToken() {
     if (!localStorage.getItem('token')) {
       // window.open('http://34.125.7.41:8083/','_self');
-      this.router.navigate(['/']);
+      //this.router.navigate(['/']);
+      location.href = "dashboard.component.html";
     }
   }
   
@@ -46,7 +47,10 @@ export class DashboardComponent implements OnInit {
   
   refresh(){
     // window.open('http://34.125.7.41:8083/dashboard','_self');
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard'])
+     .then(() => {
+    window.location.reload();
+  });
     this.getComponents();
     this.getLogs();
   }
