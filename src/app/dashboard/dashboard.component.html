@@ -92,7 +92,11 @@
                 </div>
                 <div class="stat-cards-info">
                   <p class="stat-cards-info__num">LED</p>
-                  <p class="stat-cards-info__title">Encendido</p>
+                  <label class="switch mt-2">
+                    <input type="checkbox" name="LED" [checked]="sensors[5] == '1' ? true : false"
+                    (blur)="blurEvent($event)">
+                    <span class="slider-btn round"></span>
+                  </label>
                 </div>
               </article>
             </div>
@@ -106,8 +110,9 @@
                 <div class="stat-cards-info">
                   <p class="stat-cards-info__num">Actuador </p>
                   <div class="slidecontainer">
-                    <input type="range" min="0" max="180" value="10" class="slider" id="actuator-slider" name="SG90" (blur)="blurEvent($event)"
+                    <input type="range" min="0" max="180" value="{{sensors[4]}}" class="slider" id="actuator-slider" name="SG90" (blur)="blurEvent($event)"
                     >
+                    <h3 style="color:white">{{sensors[4]}}°</h3>
                   </div>
                 </div>
               </article>

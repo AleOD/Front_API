@@ -15,8 +15,14 @@ export class DashboardComponent implements OnInit {
   slider: string = "";
   token: string = localStorage.getItem('token');
 
-  blurEvent(event: any){
-    this.setActuator(event.target.name, event.target.value);
+
+  blurEvent(event: any){    
+    if(event.target.name == 'LED'){
+      this.setActuator(event.target.name, event.target.checked ? '1' : '0');
+    }else{
+      this.setActuator(event.target.name, event.target.value);
+    }
+    this.getComponents();
   }
 
   constructor(private graphqlProductsService: GraphqlProductsService ) { }
@@ -40,7 +46,9 @@ export class DashboardComponent implements OnInit {
   setActuator(name:string, value:string) {  
     this.graphqlProductsService.updateComponent(this.token,name,value)
     .subscribe(({ data }) => {
-       console.log('actuatorValue: ', JSON.stringify(data));
+      let c = JSON.parse(JSON.stringify(data)).updateComponent.component.value;
+       console.log('actuatorValue: ', (c));
+       this.sensors[4] = c;
     }, (error) => {
        console.log('there was an error sending the query', error);
     });
@@ -49,13 +57,17 @@ export class DashboardComponent implements OnInit {
   sortSensors(sensors:any) {
     return [
       // Ultrasonic sensor
-      sensors.filter((sensor) => sensor.unit === "cm")[0].value.slice(0,5),
+      sensors.filter((sensor) => sensor.name === "Ultrasonic sensor")[0].value.slice(0,5),
       // DHT11 - Temperature
-      sensors.filter((sensor) => sensor.unit === "°")[0].value,
+      sensors.filter((sensor) => sensor.name === "DHT11-temperature")[0].value,
       // DHT11 - Humidity
-      sensors.filter((sensor) => sensor.unit === "%")[0].value,
+      sensors.filter((sensor) => sensor.name === "DHT11-humidity")[0].value,
       // LDR
-      sensors.filter((sensor) => sensor.unit === "none")[0].value
+      sensors.filter((sensor) => sensor.name === "LDR")[0].value,
+      // SG90
+      sensors.filter((sensor) => sensor.name === "SG90")[0].value,
+      // LED
+      sensors.filter((sensor) => sensor.name === "LED")[0].value 
     ]
   }
 }
