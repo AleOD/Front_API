@@ -24,17 +24,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _graphql_users_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../graphql.users.service */ "RNCJ");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "s7LF");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "s7LF");
 
 
 
 
 
-//import { LoginComponent } from '../login/login.component';
 class RegisterComponent {
-    constructor(graphqlUsersService) {
+    constructor(graphqlUsersService, router) {
         this.graphqlUsersService = graphqlUsersService;
+        this.router = router;
         this.user = "";
         this.pass = "";
         this.email = "test@test.com";
@@ -61,14 +61,14 @@ class RegisterComponent {
             console.log('logged: ', JSON.stringify(data));
             this.token = JSON.parse(JSON.stringify(data)).tokenAuth.token;
             localStorage.setItem('token', this.token);
-            if (this.token)
-                window.open('http://34.125.7.41:8083/dashboard', '_self');
+            //  if(this.token)window.open('http://34.125.7.41:8083/dashboard','_self');
+            this.router.navigate(['/dashboard']);
         }, (error) => {
             console.log('there was an error sending the query', error);
         });
     }
 }
-RegisterComponent.ɵfac = function RegisterComponent_Factory(t) { return new (t || RegisterComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_graphql_users_service__WEBPACK_IMPORTED_MODULE_1__["GraphqlUsersService"])); };
+RegisterComponent.ɵfac = function RegisterComponent_Factory(t) { return new (t || RegisterComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_graphql_users_service__WEBPACK_IMPORTED_MODULE_1__["GraphqlUsersService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
 RegisterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RegisterComponent, selectors: [["app-register"]], decls: 28, vars: 2, consts: [[1, "vh-100", "gradient-custom"], [1, "container", "py-5", "h-100"], [1, "row", "d-flex", "justify-content-center", "align-items-center", "h-100"], [1, "col-12", "col-md-8", "col-lg-6", "col-xl-5"], [1, "card", "bg-dark", "text-white", 2, "border-radius", "1rem"], [1, "card-body", "p-5", "text-center"], [1, "mb-md-5", "mt-md-4", "pb-5"], [1, "fw-bold", "mb-2", "text-uppercase"], [1, "text-white-50", "mb-5"], [1, "form-outline", "form-white", "mb-4"], ["type", "text", "id", "typeEmailX", "placeholder", "username", 1, "form-control", "form-control-lg", 3, "ngModel", "ngModelChange"], ["type", "password", "id", "typePasswordX", "placeholder", "Password", 1, "form-control", "form-control-lg", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-outline-light", "btn-lg", "px-5", 3, "click"], [1, "mb-0"], ["routerLink", "/login", 1, "text-white-50", "fw-bold"], ["routerLink", "/", 1, "text-white-50", "fw-bold"]], template: function RegisterComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "section", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
@@ -126,7 +126,7 @@ RegisterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.user);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.pass);
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgModel"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterLinkWithHref"]], styles: [".gradient-custom[_ngcontent-%COMP%] {\n  \n  background: #6a11cb;\n  \n  \n  background: linear-gradient(135deg, #58689d 0%, #050b1e 100%);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSw4QkFBQTtFQUNBLG1CQUFBO0VBRUEsK0JBQUE7RUFHQSxxRUFBQTtFQUNBLDZEQUFBO0FBREoiLCJmaWxlIjoic3JjL2FwcC9yZWdpc3Rlci9yZWdpc3Rlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5ncmFkaWVudC1jdXN0b20ge1xyXG4gICAgLyogZmFsbGJhY2sgZm9yIG9sZCBicm93c2VycyAqL1xyXG4gICAgYmFja2dyb3VuZDogIzZhMTFjYjtcclxuICBcclxuICAgIC8qIENocm9tZSAxMC0yNSwgU2FmYXJpIDUuMS02ICovXHJcbiAgICBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudCgtNDVkZWcsIHJnYmEoODgsMTA0LDE1NywxKSAwJSwgcmdiYSg1LDExLDMwLDEpIDEwMCUpO1xyXG4gIFxyXG4gICAgLyogVzNDLCBJRSAxMCsvIEVkZ2UsIEZpcmVmb3ggMTYrLCBDaHJvbWUgMjYrLCBPcGVyYSAxMissIFNhZmFyaSA3KyAqL1xyXG4gICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgcmdiYSg4OCwxMDQsMTU3LDEpIDAlLCByZ2JhKDUsMTEsMzAsMSkgMTAwJSk7XHJcbiAgfSJdfQ== */"] });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"]], styles: [".gradient-custom[_ngcontent-%COMP%] {\n  \n  background: #6a11cb;\n  \n  \n  background: linear-gradient(135deg, #58689d 0%, #050b1e 100%);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSw4QkFBQTtFQUNBLG1CQUFBO0VBRUEsK0JBQUE7RUFHQSxxRUFBQTtFQUNBLDZEQUFBO0FBREoiLCJmaWxlIjoic3JjL2FwcC9yZWdpc3Rlci9yZWdpc3Rlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5ncmFkaWVudC1jdXN0b20ge1xyXG4gICAgLyogZmFsbGJhY2sgZm9yIG9sZCBicm93c2VycyAqL1xyXG4gICAgYmFja2dyb3VuZDogIzZhMTFjYjtcclxuICBcclxuICAgIC8qIENocm9tZSAxMC0yNSwgU2FmYXJpIDUuMS02ICovXHJcbiAgICBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudCgtNDVkZWcsIHJnYmEoODgsMTA0LDE1NywxKSAwJSwgcmdiYSg1LDExLDMwLDEpIDEwMCUpO1xyXG4gIFxyXG4gICAgLyogVzNDLCBJRSAxMCsvIEVkZ2UsIEZpcmVmb3ggMTYrLCBDaHJvbWUgMjYrLCBPcGVyYSAxMissIFNhZmFyaSA3KyAqL1xyXG4gICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgcmdiYSg4OCwxMDQsMTU3LDEpIDAlLCByZ2JhKDUsMTEsMzAsMSkgMTAwJSk7XHJcbiAgfSJdfQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](RegisterComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -134,7 +134,7 @@ RegisterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
                 templateUrl: './register.component.html',
                 styleUrls: ['./register.component.scss']
             }]
-    }], function () { return [{ type: _graphql_users_service__WEBPACK_IMPORTED_MODULE_1__["GraphqlUsersService"] }]; }, null); })();
+    }], function () { return [{ type: _graphql_users_service__WEBPACK_IMPORTED_MODULE_1__["GraphqlUsersService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }]; }, null); })();
 
 
 /***/ }),
@@ -334,12 +334,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _graphql_products_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../graphql.products.service */ "k7OT");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
+
 
 
 
 class DashboardComponent {
-    constructor(graphqlProductsService) {
+    constructor(graphqlProductsService, router) {
         this.graphqlProductsService = graphqlProductsService;
+        this.router = router;
         this.temp = [];
         this.logData = []; //logs 
         this.sensors = {};
@@ -359,20 +362,25 @@ class DashboardComponent {
     }
     checkToken() {
         if (!localStorage.getItem('token')) {
-            window.open('http://34.125.7.41:8083/', '_self');
+            // window.open('http://34.125.7.41:8083/','_self');
+            this.router.navigate(['/']);
         }
-    }
-    refresh() {
-        window.open('http://34.125.7.41:8083/dashboard', '_self');
     }
     ngOnInit() {
         this.checkToken();
         this.getComponents();
         this.getLogs();
     }
+    refresh() {
+        // window.open('http://34.125.7.41:8083/dashboard','_self');
+        this.router.navigate(['/dashboard']);
+        this.getComponents();
+        this.getLogs();
+    }
     logout() {
         localStorage.clear();
-        window.open('http://34.125.7.41:8083/', '_self');
+        // window.open('http://34.125.7.41:8083/','_self');
+        this.router.navigate(['/']);
     }
     getComponents() {
         this.querySubscription = this.graphqlProductsService.Components("-")
@@ -451,7 +459,7 @@ class DashboardComponent {
         });
     }
 }
-DashboardComponent.ɵfac = function DashboardComponent_Factory(t) { return new (t || DashboardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_graphql_products_service__WEBPACK_IMPORTED_MODULE_1__["GraphqlProductsService"])); };
+DashboardComponent.ɵfac = function DashboardComponent_Factory(t) { return new (t || DashboardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_graphql_products_service__WEBPACK_IMPORTED_MODULE_1__["GraphqlProductsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
 DashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: DashboardComponent, selectors: [["app-dashboard"]], decls: 108, vars: 7, consts: [[1, "darkmode"], [1, "layer"], ["href", "#skip-target", 1, "skip-link", "sr-only"], [1, "page-flex"], [1, "main-wrapper"], [1, "main-nav--bg"], [1, "container", "main-nav"], [1, "main-nav-start"], [1, "main-nav-end"], [2, "cursor", "pointer", 3, "click"], [1, "nav-user-wrapper"], ["href", "##", "title", "My profile", "type", "button", 1, "nav-user-btn", "dropdownDashboard-btn"], [1, "sr-only"], [1, "users-item-dropdownDashboard", "nav-user-dropdownDashboard", "dropdownDashboard"], ["href", "##", 1, "danger"], ["data-feather", "log-out", "aria-hidden", "true"], ["id", "skip-target", 1, "main", "users", "chart-page"], [1, "container"], [1, "main-title"], [1, "row", "stat-cards"], [1, "col-md-6", "col-xl-3"], [1, "stat-cards-item"], [1, "stat-cards-icon", "primary"], ["src", "../assets/img/icons/icons-measure-71.png", "alt", "Ultrasonic"], [1, "stat-cards-info"], [1, "stat-cards-info__num"], [1, "stat-cards-info__title"], [1, "stat-cards-icon", "warning"], ["data-feather", "thermometer", "aria-hidden", "true"], [1, "stat-cards-icon", "purple"], ["data-feather", "droplet", "aria-hidden", "true"], [1, "stat-cards-icon", "success"], ["data-feather", "sun", "aria-hidden", "true"], ["src", "../assets/img/icons/icons8-led-70.png", "alt", "LED"], [1, "switch", "mt-2"], ["type", "checkbox", "name", "LED", 3, "checked", "blur"], [1, "slider-btn", "round"], ["src", "../assets/img/icons/robot.png", "alt", "Servo"], [1, "slidecontainer"], ["type", "range", "min", "0", "max", "100", "id", "actuator-slider", "name", "DC-Motor", 1, "slider", 3, "value", "blur"], [2, "color", "white"], [1, "row"], [1, "col-lg-12"], [1, "chart"], ["id", "myChart", "aria-label", "Site statistics", "role", "img"], [1, "footer"], [1, "container", "footer--flex"], [1, "footer-start"], ["href", "https://github.com/AleOD/Front_API", "target", "_blank", "rel", "noopener noreferrer"], [1, "footer-end"], ["href", "##"]], template: function DashboardComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "div", 1);
@@ -662,7 +670,7 @@ DashboardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
                 templateUrl: './dashboard.component.html',
                 styleUrls: ['./dashboard.component.scss']
             }]
-    }], function () { return [{ type: _graphql_products_service__WEBPACK_IMPORTED_MODULE_1__["GraphqlProductsService"] }]; }, null); })();
+    }], function () { return [{ type: _graphql_products_service__WEBPACK_IMPORTED_MODULE_1__["GraphqlProductsService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }]; }, null); })();
 
 
 /***/ }),
@@ -1073,16 +1081,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _graphql_users_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../graphql.users.service */ "RNCJ");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "s7LF");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "s7LF");
 
 
 
 
 
 class LoginComponent {
-    constructor(graphqlUsersService) {
+    constructor(graphqlUsersService, router) {
         this.graphqlUsersService = graphqlUsersService;
+        this.router = router;
         this.user = "";
         this.pass = "";
         this.token = "";
@@ -1095,14 +1104,14 @@ class LoginComponent {
             console.log('logged: ', JSON.stringify(data));
             this.token = JSON.parse(JSON.stringify(data)).tokenAuth.token;
             localStorage.setItem('token', this.token);
-            if (this.token)
-                window.open('http://34.125.7.41:8083/dashboard', '_self');
+            //  if(this.token)window.open('http://34.125.7.41:8083/dashboard','_self');
+            this.router.navigate(['/dashboard']);
         }, (error) => {
             console.log('there was an error sending the query', error);
         });
     }
 }
-LoginComponent.ɵfac = function LoginComponent_Factory(t) { return new (t || LoginComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_graphql_users_service__WEBPACK_IMPORTED_MODULE_1__["GraphqlUsersService"])); };
+LoginComponent.ɵfac = function LoginComponent_Factory(t) { return new (t || LoginComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_graphql_users_service__WEBPACK_IMPORTED_MODULE_1__["GraphqlUsersService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
 LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: LoginComponent, selectors: [["app-login"]], decls: 30, vars: 2, consts: [[1, "vh-100", "gradient-custom"], [1, "container", "py-5", "h-100"], [1, "row", "d-flex", "justify-content-center", "align-items-center", "h-100"], [1, "col-12", "col-md-8", "col-lg-6", "col-xl-5"], [1, "card", "bg-dark", "text-white", 2, "border-radius", "1rem"], [1, "card-body", "p-5", "text-center"], [1, "mb-md-5", "mt-md-4", "pb-5"], [1, "fw-bold", "mb-2", "text-uppercase"], [1, "text-white-50", "mb-5"], [1, "form-outline", "form-white", "mb-4"], ["type", "text", "id", "typeEmailX", "placeholder", "Username", 1, "form-control", "form-control-lg", 3, "ngModel", "ngModelChange"], ["type", "password", "id", "typePasswordX", "placeholder", "Password", 1, "form-control", "form-control-lg", 3, "ngModel", "ngModelChange"], [1, "small", "mb-5", "pb-lg-2"], ["href", "#!", 1, "text-white-50"], ["type", "submit", 1, "btn", "btn-outline-light", "btn-lg", "px-5", 3, "click"], [1, "mb-0"], ["routerLink", "/register", 1, "text-white-50", "fw-bold"], ["routerLink", "/", 1, "text-white-50", "fw-bold"]], template: function LoginComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "section", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
@@ -1164,7 +1173,7 @@ LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCom
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.user);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.pass);
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgModel"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterLinkWithHref"]], styles: [".gradient-custom[_ngcontent-%COMP%] {\n  \n  background: #6a11cb;\n  \n  \n  background: linear-gradient(135deg, #58689d 0%, #050b1e 100%);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSw4QkFBQTtFQUNBLG1CQUFBO0VBRUEsK0JBQUE7RUFHQSxxRUFBQTtFQUNBLDZEQUFBO0FBREoiLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5ncmFkaWVudC1jdXN0b20ge1xyXG4gICAgLyogZmFsbGJhY2sgZm9yIG9sZCBicm93c2VycyAqL1xyXG4gICAgYmFja2dyb3VuZDogIzZhMTFjYjtcclxuICBcclxuICAgIC8qIENocm9tZSAxMC0yNSwgU2FmYXJpIDUuMS02ICovXHJcbiAgICBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudCgtNDVkZWcsIHJnYmEoODgsMTA0LDE1NywxKSAwJSwgcmdiYSg1LDExLDMwLDEpIDEwMCUpO1xyXG4gIFxyXG4gICAgLyogVzNDLCBJRSAxMCsvIEVkZ2UsIEZpcmVmb3ggMTYrLCBDaHJvbWUgMjYrLCBPcGVyYSAxMissIFNhZmFyaSA3KyAqL1xyXG4gICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgcmdiYSg4OCwxMDQsMTU3LDEpIDAlLCByZ2JhKDUsMTEsMzAsMSkgMTAwJSk7XHJcbiAgfSJdfQ== */"] });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"]], styles: [".gradient-custom[_ngcontent-%COMP%] {\n  \n  background: #6a11cb;\n  \n  \n  background: linear-gradient(135deg, #58689d 0%, #050b1e 100%);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSw4QkFBQTtFQUNBLG1CQUFBO0VBRUEsK0JBQUE7RUFHQSxxRUFBQTtFQUNBLDZEQUFBO0FBREoiLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5ncmFkaWVudC1jdXN0b20ge1xyXG4gICAgLyogZmFsbGJhY2sgZm9yIG9sZCBicm93c2VycyAqL1xyXG4gICAgYmFja2dyb3VuZDogIzZhMTFjYjtcclxuICBcclxuICAgIC8qIENocm9tZSAxMC0yNSwgU2FmYXJpIDUuMS02ICovXHJcbiAgICBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudCgtNDVkZWcsIHJnYmEoODgsMTA0LDE1NywxKSAwJSwgcmdiYSg1LDExLDMwLDEpIDEwMCUpO1xyXG4gIFxyXG4gICAgLyogVzNDLCBJRSAxMCsvIEVkZ2UsIEZpcmVmb3ggMTYrLCBDaHJvbWUgMjYrLCBPcGVyYSAxMissIFNhZmFyaSA3KyAqL1xyXG4gICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgcmdiYSg4OCwxMDQsMTU3LDEpIDAlLCByZ2JhKDUsMTEsMzAsMSkgMTAwJSk7XHJcbiAgfSJdfQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LoginComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -1172,7 +1181,7 @@ LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCom
                 templateUrl: './login.component.html',
                 styleUrls: ['./login.component.scss']
             }]
-    }], function () { return [{ type: _graphql_users_service__WEBPACK_IMPORTED_MODULE_1__["GraphqlUsersService"] }]; }, null); })();
+    }], function () { return [{ type: _graphql_users_service__WEBPACK_IMPORTED_MODULE_1__["GraphqlUsersService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }]; }, null); })();
 
 
 /***/ }),
