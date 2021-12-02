@@ -65,7 +65,7 @@ export class DashboardComponent implements OnInit {
       // LDR
       sensors.filter((sensor) => sensor.name === "LDR")[0].value,
       // SG90
-      sensors.filter((sensor) => sensor.name === "SG90")[0].value,
+      sensors.filter((sensor) => sensor.name === "DC-Motor")[0].value,
       // LED
       sensors.filter((sensor) => sensor.name === "LED")[0].value 
     ]
